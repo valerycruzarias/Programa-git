@@ -1,0 +1,248 @@
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+p {
+  font-size: 14px;
+}
+
+
+.texto-online {
+  color: black;
+  font-weight: normal;
+}
+
+.logo-login {
+  width: 200px;     
+  height: auto;       
+  display: block;
+  margin: -10px auto;
+  margin-bottom: 5px; 
+  text-align: center;
+  margin-bottom: -30px; 
+}
+
+.cajita-piola {
+  width: 330px;
+  min-height: 500px;
+  border: 1px solid #d3d3d3;
+  border-radius: 15px;
+  justify-content: center;
+  display: flex;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.acomodar-cajita {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.contenido-login {
+  padding: 20px;
+  width: 100%;
+}
+
+.centrar-enlace {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.formulario-login {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.formulario-login input {
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.formulario-login label {
+  font-size: 12px;
+  color: #001F66;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.clases-botoncito {
+  width: 100%;
+  height: 35px;
+  background-color: #7B4FB7;
+  color: white;
+  border: none;
+  border-radius: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clases-botoncito:hover {
+  background-color: #6c3fb0;
+}
+
+.texto-link {
+  font-size: 13px;
+  text-align: center;
+  color: #001F66;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.clases-fondo {
+  background-color: #E6D6F0;
+}
+
+.titulo-market {
+  text-align: center;
+  font-size: 28px;
+  margin: 5px;
+  line-height: 1.1;
+}
+
+.titulo-azul {
+  color: #001F66;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.subtitulo {
+  text-align: center;
+  margin: 5px 0 -5px 0;
+  font-size: 14px;
+  color: black;
+}
+
+.label-fecha {
+  font-size: 13px;
+  color: black;
+  margin: 5px 0 5px 0;
+  display: block;
+}
+
+.inputs-dobles {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.inputs-dobles input,
+.inputs-dobles select {
+  flex: 1;
+}
+
+.formulario-login input,
+.formulario-login select {
+  width: 93%;
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.subrayado-market {
+  display: inline-block;
+  border-bottom: 4px solid #001F66;
+  padding-bottom: 0;  
+  line-height: 1; 
+}
+
+select {
+  max-height: 40px;
+  overflow-y: auto;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+
+.pantalla-error-fondo {
+  background-color: #E6D6F0;
+  font-family: 'Titillium Web', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-contenedor {
+  background-color: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 360px;
+  height: 95vh;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.error-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.icono-volver,
+.icono-ayuda {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+.error-cuerpo {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.error-imagen {
+  width: 100px;
+  margin: 20px auto;
+}
+
+.ups-texto {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.mensaje-error-central {
+  font-size: 15px;
+  line-height: 1.5;
+  color: black;
+}
+
+.emoji-grande {
+  font-size: 28px;
+  margin-top: 15px;
+}
+.error {
+  color: red;
+  font-size: 0.75rem;
+  margin: 0;          /* sin márgenes extra */
+  padding: 0;         /* sin relleno */
+  line-height: 1;     /* altura compacta */
+  display: block;     /* ocupa solo lo necesario */
+}
+#error-login {
+  margin-top: -5px;  /* “sube” el mensaje */
+}

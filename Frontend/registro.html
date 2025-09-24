@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registro - MarketOnline</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body class="clases-fondo">
+  
+  <div class="acomodar-cajita">
+    <div class="cajita-piola">
+      <div class="contenido-login">
+
+        <h1 class="titulo-market">
+            <span class="subrayado-market">
+            <span class="titulo-azul">Market</span><span class="texto-online">Online</span>
+            </span>
+        </h1>
+
+        <p class="subtitulo">Crea una cuenta.</p>
+
+        <form id="form-registro" class="formulario-login">
+          <div class="inputs-dobles">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+          </div>
+
+          <input type="text" id="cedula" placeholder="Cédula" required>
+
+          <label class="label-fecha" for="fecha-nacimiento">Fecha de nacimiento *</label>
+          <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+
+          <input type="email" id="correo" placeholder="Correo Electrónico" required>
+          <input type="password" id="contrasena" placeholder="Contraseña" required>
+
+          <button type="submit" class="clases-botoncito">REGÍSTRATE</button>
+          <p class="texto-link"><a href="index.html">¿Ya tienes una cuenta?</a></p>
+        </form>
+
+        <p id="mensaje" style="color: white; margin-top: 10px;"></p>
+      </div>
+    </div>
+  </div>
+<script>
+  document.getElementById("form-registro").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const cedula = document.getElementById("cedula").value;
+    const fechaNacimiento = document.getElementById("fecha-nacimiento").value;
+    const correo = document.getElementById("correo").value;
+    const contrasena = document.getElementById("contrasena").value;
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          usuario: correo,   
+          contrasena,           
+          nombre,
+          apellido,
+          cedula,
+          fechaNacimiento
+        })
+      });
+
+      const data = await response.json();
+      const mensaje = document.getElementById("mensaje");
+
+      if (response.ok) {
+        mensaje.style.color = "lightgreen";
+        mensaje.innerText = "✅ Usuario registrado correctamente.";
+        setTimeout(() => {
+          window.location.href = "index.html";
+        }, 2000);
+      } else {
+        mensaje.style.color = "orange";
+        mensaje.innerText = "⚠️ " + (data.msg || "Error en el registro");
+      }
+
+    } catch (error) {
+      const mensaje = document.getElementById("mensaje");
+      mensaje.style.color = "red";
+      mensaje.innerText = "❌ Error en el servidor.";
+      console.error(error);
+    }
+  });
+</script>
+</body>
+</html>

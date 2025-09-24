@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarketOnline</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet">
+  <style>
+    .error {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body class="clases-fondo">
+
+  <div class="acomodar-cajita">
+    <div class="cajita-piola">
+      <div class="contenido-login">
+
+        <img src="img/MartketOnline.png" alt="Logo MarketOnline" class="logo-login">
+
+        <form id="form-login" class="formulario-login">
+          <label for="usuario">USUARIO</label>
+          <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+
+          <label for="contrasena">CONTRASEÑA</label>
+          <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+          <p id="error-login" class="error"></p>
+
+          <button type="submit" id="boton-ingresar" class="clases-botoncito">INGRESAR</button>
+
+          <p class="centrar-enlace"><a href="registro.html">¿Aún no tienes cuenta?</a></p>
+          <button type="button" id="boton-registro" class="clases-botoncito">REGÍSTRATE</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+<script>
+document.getElementById("form-login").addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  document.getElementById("error-login").textContent = "";
+
+  const usuario = document.getElementById("usuario").value;
+  const contrasena = document.getElementById("contrasena").value;
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ usuario, contrasena })
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("token", data.token);
+      window.location.href = "productos.html";
+    } else {
+      document.getElementById("error-login").textContent = data.msg;
+    }
+  } catch (error) {
+    console.error("Error en el login:", error);
+    document.getElementById("error-login").textContent = "Error de conexión con el servidor";
+  }
+});
+
+document.getElementById("boton-registro").addEventListener("click", function () {
+  window.location.href = "registro.html";
+});
+</script>
+</body>
+</html>
