@@ -101,12 +101,13 @@ const Registro = () => {
               </label>
               <input
                 type="date"
-                id="fecha-nacimiento"
-                name="fecha-nacimiento"
-                required
+                id="fechaNacimiento"
+                name="fechaNacimiento"
                 value={formData.fechaNacimiento}
                 onChange={handleChange}
-              />
+                required
+                />
+
 
               <input
                 type="email"
