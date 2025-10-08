@@ -1,3 +1,5 @@
+// Componente de registro de usuario para el proyecto MarketOnline
+// Permite crear una nueva cuenta ingresando datos personales y credenciales
 import React, { useState } from "react";
 import '../components/registro.css';
 
