@@ -1,0 +1,13 @@
+ENDPOINTS DE LA API – MarketOnline
+
+Registro de usuario  
+POST http://localhost:5000/api/auth/register  
+
+Inicio de sesión  
+POST http://localhost:5000/api/auth/login  
+
+Listar productos  
+GET http://localhost:5000/api/products  
+
+Crear producto  
+POST http://localhost:5000/api/products  
